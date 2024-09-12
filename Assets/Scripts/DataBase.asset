@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303fc9d2493e9e04da9de7e1ac2038cf, type: 3}
+  m_Name: DataBase
+  m_EditorClassIdentifier: 
+  objectsData:
+  - <Name>k__BackingField: Wall
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 7824008666859720082, guid: d6d681968263ff141b94842e1403ec7b, type: 3}
+  - <Name>k__BackingField: Car
+    <ID>k__BackingField: 1
+    <Size>k__BackingField: {x: 3, y: 2}
+    <Prefab>k__BackingField: {fileID: 1608672656744951087, guid: 32b15074c852b9142935aed2cd4f9627, type: 3}
+  - <Name>k__BackingField: BigWall
+    <ID>k__BackingField: 2
+    <Size>k__BackingField: {x: 3, y: 5}
+    <Prefab>k__BackingField: {fileID: 749687404995620816, guid: 50fc93d577b681e448b901c2022a2df6, type: 3}
