@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PlacementSystem : MonoBehaviour
 {
+
+    private bool hasSpawnedPlayer;
+    [SerializeField]
+    private GameObject player,trashGoal,enemy;
     [SerializeField]
     private RandomTransformPos transformPos;
     [SerializeField]
@@ -14,7 +17,7 @@ public class PlacementSystem : MonoBehaviour
 
     [SerializeField]
     private ObjectsDataBaseSO database;
-    private int selcectedObjectIndex = -1;
+    //private int selcectedObjectIndex = -1; //Left over from grid placement
 
     private GridData floorData, furnitureData;
 
@@ -31,17 +34,28 @@ public class PlacementSystem : MonoBehaviour
         furnitureData = new();
         Transform parent = new GameObject("Walls").transform;
         parent.tag = "Obj";
+        if (!hasSpawnedPlayer)
+        {
+            hasSpawnedPlayer = true;
+            Vector3 importantSpawn = transformPos.SpawnPlayer();
+            Vector3Int gridPos = grid.WorldToCell(importantSpawn);
+            PlaceImportant(new Vector3Int(gridPos.x,gridPos.y+1,gridPos.z), player);
+            importantSpawn = transformPos.SpawnTrash();
+            gridPos = grid.WorldToCell(importantSpawn);
+            PlaceImportant(gridPos, trashGoal);
+            importantSpawn = transformPos.SpawnEnemy();
+            gridPos = grid.WorldToCell(importantSpawn);
+            PlaceImportant(new Vector3Int(gridPos.x, gridPos.y + 1, gridPos.z), enemy);
+        }
         for (int i = 0; i < spawnAmount; i++)
         {
             int rng = Random.Range(0, database.objectsData.Count);
-            Debug.Log(rng);
             Vector3 spawnPos = transformPos.GetMapPositions();
             Vector3Int gridPos = grid.WorldToCell(spawnPos);
             bool placementValidity = CheckPlacementValilidy(gridPos, rng);
             if (placementValidity == false)
             {
                 rng = Random.Range(0, database.objectsData.Count);
-                Debug.Log(rng);
                 spawnPos = transformPos.GetMapPositions();
                 gridPos = grid.WorldToCell(spawnPos);
                 placementValidity = CheckPlacementValilidy(gridPos, rng);
@@ -79,6 +93,13 @@ public class PlacementSystem : MonoBehaviour
         placedObjects.Add(newObject);
         GridData selectedData = database.objectsData[rng].ID == 0 ? floorData : furnitureData;
         selectedData.AddObjectAt(spawnpos, database.objectsData[rng].Size, database.objectsData[rng].ID, placedObjects.Count - 1);
+    }
+    private void PlaceImportant(Vector3Int spawnpos, GameObject toSpawn)
+    {
+        toSpawn.transform.position = spawnpos;
+        placedObjects.Add(toSpawn);
+        GridData selectedData = database.objectsData[2].ID == 0 ? floorData : furnitureData;
+        selectedData.AddObjectAt(spawnpos, database.objectsData[2].Size, database.objectsData[2].ID, placedObjects.Count);
     }
 
 

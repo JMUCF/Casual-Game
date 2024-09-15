@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GridData
+public class GridData //Stores the information of placed items and the positions they take up. Makes a check every time a item is spawned to see if it overlaps with any thing
 {
     Dictionary<Vector3Int, PlacementData> placedObjects = new();
 

@@ -4,7 +4,7 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GroundNavMesh : MonoBehaviour
+public class GroundNavMesh : MonoBehaviour //Builds nav mesh
 {
     [SerializeField]
     private NavMeshSurface navMeshSurface;
