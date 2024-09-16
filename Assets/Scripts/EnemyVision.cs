@@ -40,6 +40,7 @@ public class EnemyVision : MonoBehaviour
     void Update()
     {
         ScanTimer();
+       
     }
     void ScanTimer()
     {

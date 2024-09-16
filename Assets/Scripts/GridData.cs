@@ -16,7 +16,8 @@ public class GridData //Stores the information of placed items and the positions
         {
             if (placedObjects.ContainsKey(pos))
             {
-                throw new Exception($"Dictionary already contains this cell position {pos}");
+
+                //throw new Exception($"Dictionary already contains this cell position {pos}");
             }
             placedObjects[pos] = data;
         }
