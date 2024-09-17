@@ -104,7 +104,7 @@ public class PlacementSystem : MonoBehaviour
 
 
 }
-[CustomEditor(typeof(PlacementSystem)), CanEditMultipleObjects]
+/*[CustomEditor(typeof(PlacementSystem)), CanEditMultipleObjects]
 public class PlacementSystemEditor : Editor
 {
     public override void OnInspectorGUI()
@@ -129,4 +129,4 @@ public class PlacementSystemEditor : Editor
             }
         }
     }
-}
+}*/
