@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obj
+  - InteractButton
   layers:
   - Default
   - TransparentFX
