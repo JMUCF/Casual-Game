@@ -7,12 +7,15 @@ public class EnemyBrain : MonoBehaviour
 {
     public Transform playerTransform;
     NavMeshAgent agent;
+    private Animator animator;
     public bool canSee = false;
     private bool hasPoint = false;
+    public bool hasJumped = false;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -21,9 +24,15 @@ public class EnemyBrain : MonoBehaviour
         if (canSee)
         {
             agent.destination = playerTransform.position;
+            if (!hasJumped)
+            {
+                hasJumped = true;
+                animator.SetTrigger("Jump");
+            }
         }
         else
         {
+            hasJumped = false ;
            if(!hasPoint)
            {
                 hasPoint = true;
