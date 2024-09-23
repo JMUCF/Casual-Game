@@ -10,7 +10,8 @@ public class EnemyBrain : MonoBehaviour
     private Animator animator;
     public bool canSee = false;
     private bool hasPoint = false;
-    public bool hasJumped = false;
+    private bool hasJumped = false;
+    private Vector3 lastPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class EnemyBrain : MonoBehaviour
     {
         if (canSee)
         {
-            agent.destination = playerTransform.position;
+            lastPos = playerTransform.position;
+            WalkToPoint(lastPos);
             if (!hasJumped)
             {
                 hasJumped = true;
@@ -53,7 +55,16 @@ public class EnemyBrain : MonoBehaviour
             Random.Range(min.y, max.y),
             Random.Range(min.z, max.z)
             );
-        agent.destination = rndPos;
+        WalkToPoint(rndPos);
         Invoke("Wander", 5);
+    }
+    void WalkToPoint(Vector3 pos)
+    {
+        agent.destination = pos;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(lastPos, .5f);
     }
 }
