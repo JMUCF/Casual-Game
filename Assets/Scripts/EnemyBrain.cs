@@ -24,7 +24,7 @@ public class EnemyBrain : MonoBehaviour
     {
         if (canSee)
         {
-            lastPos = playerTransform.position;
+            lastPos = playerTransform.position;Debug.Log("I canSee You");
             WalkToPoint(lastPos);
             if (!hasJumped)
             {
@@ -34,7 +34,7 @@ public class EnemyBrain : MonoBehaviour
         }
         else
         {
-            hasJumped = false ;
+            
            if(!hasPoint)
            {
                 hasPoint = true;
@@ -46,6 +46,7 @@ public class EnemyBrain : MonoBehaviour
 
     void Wander()
     {
+        hasJumped = false;
         WorldBounds worldBounds = GameObject.FindObjectOfType<WorldBounds>();
         Vector3 min = worldBounds.min.position;
         Vector3 max = worldBounds.max.position;

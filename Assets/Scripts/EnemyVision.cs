@@ -10,7 +10,7 @@ public class EnemyVision : MonoBehaviour
     public float angle = 30;
     public float height = 1.0f;
     public Color meshColor = Color.red;
-    public int scanFreequency = 30;
+    public int scanFreequency = 1;
     public LayerMask layers;
     public LayerMask occlusionLayers;
     public List<GameObject> Objects = new List<GameObject>();
@@ -54,7 +54,7 @@ public class EnemyVision : MonoBehaviour
     void Scan() //Every time it scans it checks within the scan sphere and stores them in an array if the player is inside.
     {
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layers, QueryTriggerInteraction.Collide);
-
+        Debug.Log("Scanning");
         Objects.Clear();
         for (int i = 0; i < count; i++)
         {
