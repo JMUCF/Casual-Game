@@ -10,7 +10,7 @@ public class EnemyVision : MonoBehaviour
     public float angle = 30;
     public float height = 1.0f;
     public Color meshColor = Color.red;
-    public int scanFreequency = 1;
+    public int scanFreequency = 30;
     public LayerMask layers;
     public LayerMask occlusionLayers;
     public List<GameObject> Objects = new List<GameObject>();
