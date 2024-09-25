@@ -24,7 +24,8 @@ public class EnemyBrain : MonoBehaviour
     {
         if (canSee)
         {
-            lastPos = playerTransform.position;Debug.Log("I canSee You");
+            lastPos = playerTransform.position;
+            Debug.Log("I canSee You");
             WalkToPoint(lastPos);
             if (!hasJumped)
             {

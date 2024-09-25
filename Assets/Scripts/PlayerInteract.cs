@@ -32,7 +32,7 @@ public class PlayerInteract : MonoBehaviour
         hitDetected = Physics.Raycast(transform.position + offset, transform.forward, out hit, maxDistance);
         if (hitDetected)
         {
-            Debug.Log("Hit : " + hit.collider.name);
+            //Debug.Log("Hit : " + hit.collider.name);
             if(hit.collider.name == "Sphere")
             {
                 buttonImage.color = Color.green;

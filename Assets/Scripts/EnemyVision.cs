@@ -62,12 +62,11 @@ public class EnemyVision : MonoBehaviour
             if (IsInSight(obj))
             {
                 Objects.Add(obj);
-                Debug.Log("See");
+                Debug.LogWarning("See");
                 enemyBrain.canSee = true;
             }
             else
             {
-                Debug.LogWarning("No See");
                 enemyBrain.canSee = false;
             }
         }
