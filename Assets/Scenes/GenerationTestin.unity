@@ -577,7 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182f7e459ad4b2044ad5fd9648976139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1175528298}
+  gm: {fileID: 2032293063}
+  player: {fileID: 1175528292}
   canSee: 0
 --- !u!195 &1155564818
 NavMeshAgent:
@@ -666,11 +667,6 @@ Light:
 --- !u!1 &1175528292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2590669155949598213, guid: c83bf30284c420c409a29b94769f98dc, type: 3}
-  m_PrefabInstance: {fileID: 1020863417}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1175528298 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6592000804421245395, guid: c83bf30284c420c409a29b94769f98dc, type: 3}
   m_PrefabInstance: {fileID: 1020863417}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &1175528299
@@ -1150,6 +1146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6615209594f03479bd6664a38e2607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTaken: 0
+  beenSeen: 0
 --- !u!4 &2032293064
 Transform:
   m_ObjectHideFlags: 0

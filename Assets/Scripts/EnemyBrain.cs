@@ -5,7 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyBrain : MonoBehaviour
 {
-    public Transform playerTransform;
+    [SerializeField]
+    private GameManager gm;
+
+    public GameObject player;
+    private PlayerController playerController;
     NavMeshAgent agent;
     public bool canSee = false;
     private bool hasPoint = false;
@@ -13,14 +17,16 @@ public class EnemyBrain : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update() //Really basic enemy AI system
     {
-        if (canSee)
+        if (canSee && !playerController.inBush)
         {
-            agent.destination = playerTransform.position;
+            agent.destination = player.transform.position;
+            gm.beenSeen = true;
         }
         else
         {

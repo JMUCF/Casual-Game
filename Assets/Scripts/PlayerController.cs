@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private float speed;
+    public bool inBush;
 
     // Update is called once per frame
     void Update()
