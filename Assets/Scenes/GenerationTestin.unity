@@ -784,7 +784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 5.39
   angle: 20.9
-  height: 1
+  height: 0.73
   meshColor: {r: 1, g: 0, b: 0, a: 1}
   scanFreequency: 30
   layers:

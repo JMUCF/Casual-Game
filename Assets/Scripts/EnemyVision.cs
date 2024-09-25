@@ -54,7 +54,7 @@ public class EnemyVision : MonoBehaviour
     void Scan() //Every time it scans it checks within the scan sphere and stores them in an array if the player is inside.
     {
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layers, QueryTriggerInteraction.Collide);
-        Debug.Log("Scanning");
+        
         Objects.Clear();
         for (int i = 0; i < count; i++)
         {
@@ -62,10 +62,12 @@ public class EnemyVision : MonoBehaviour
             if (IsInSight(obj))
             {
                 Objects.Add(obj);
+                Debug.Log("See");
                 enemyBrain.canSee = true;
             }
             else
             {
+                Debug.LogWarning("No See");
                 enemyBrain.canSee = false;
             }
         }
