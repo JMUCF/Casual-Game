@@ -89,6 +89,7 @@ public class PlacementSystem : MonoBehaviour
 
         GameObject newObject = Instantiate(database.objectsData[rng].Prefab);
         newObject.transform.position = spawnpos;
+        newObject.transform.rotation = Quaternion.Euler(newObject.transform.rotation.x, Random.Range(0,360), newObject.transform.rotation.z);
         newObject.transform.SetParent(parent);
         placedObjects.Add(newObject);
         GridData selectedData = database.objectsData[rng].ID == 0 ? floorData : furnitureData;
