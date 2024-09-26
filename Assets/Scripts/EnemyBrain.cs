@@ -36,7 +36,7 @@ public class EnemyBrain : MonoBehaviour
         else
         {
             
-           if(!hasPoint)
+           if(!hasPoint && agent.remainingDistance <= agent.stoppingDistance)
            {
                 hasPoint = true;
                 Wander();
