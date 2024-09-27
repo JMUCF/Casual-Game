@@ -10,6 +10,7 @@ public class EnemyBrain : MonoBehaviour
     private Animator animator;
     public bool canSee = false;
     private bool hasPoint = false;
+    [SerializeField]
     private bool hasJumped = false;
     private Vector3 lastPos;
     // Start is called before the first frame update
