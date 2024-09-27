@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyHitBox : MonoBehaviour
 {
 
-    [SerializeField]
-    private GameManager gm;
+    public delegate void OnPlayerLose();
+    public static event OnPlayerLose onPlayerLose;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            gm.LoseState();
+            onPlayerLose?.Invoke();
         }
     }
 }
