@@ -6,7 +6,6 @@ using static EnemyHitBox;
 
 public class GameManager : MonoBehaviour
 {
-
     private void OnEnable()
     {
         EnemyHitBox.onPlayerLose += LoseState;

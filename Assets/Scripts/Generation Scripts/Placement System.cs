@@ -29,6 +29,7 @@ public class PlacementSystem : MonoBehaviour
 
     public void Start()
     {
+        spawnAmount = SceneChange.spawnAmount;
         placedObjects.Clear();
         floorData = new();
         furnitureData = new();

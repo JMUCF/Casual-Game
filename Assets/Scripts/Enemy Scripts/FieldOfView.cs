@@ -9,6 +9,8 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
         [SerializeField]
         private EnemyBrain enemyBrain;
 
+    
+
     [Header("View Cone Settings")]
         [SerializeField]
         private float viewRadius;
@@ -32,6 +34,7 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
 
     void Start()
     {
+        SetStats();
         enemyBrain = GetComponentInParent<EnemyBrain>();
         hitbox = GetComponent<BoxCollider>();
         viewMesh = new Mesh();
@@ -39,6 +42,16 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
         viewMeshFilter.mesh = viewMesh;
         StartCoroutine("FindTargetsWithDelay", .2f);
     } 
+    void SetStats()
+    {
+        viewRadius = SceneChange.enemyViewRadius;
+        viewAngle = SceneChange.enemyViewAngle;
+        //flashlight settings
+        Light flashlight = GetComponentInParent<Light>();
+        flashlight.range = viewRadius;
+        flashlight.innerSpotAngle = viewAngle;
+        flashlight.spotAngle = viewAngle;
+    }
 
     IEnumerator FindTargetsWithDelay(float delay) //every so often this code runs to check if the player is in vision
     {
