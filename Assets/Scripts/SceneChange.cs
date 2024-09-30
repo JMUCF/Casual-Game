@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
 
     [Header("Game Settings")]
     public static string propType;
-    public static int spawnAmount, enemyViewRadius, enemyViewAngle;
+    public static int spawnAmount, enemyViewRadius, enemyViewAngle, enemySpeed;
 
     [Header("LoadScreen")]
     public GameObject loadingScreen;
@@ -17,17 +17,17 @@ public class SceneChange : MonoBehaviour
 
     public void PlayButton()
     {
-        SetTypes("Suburbs", 10, 4, 45);
+        SetTypes("Suburbs", 10, 4, 45,2);
         StartCoroutine(LoadSceneAsync(1));
     }
     public void PlayCity()
     {
-        SetTypes("City", 25, 6, 60);
+        SetTypes("City", 25, 6, 60,4);
         StartCoroutine(LoadSceneAsync(1));
     }
     public void PlayArmy()
     {
-        SetTypes("Army", 50, 8, 90);
+        SetTypes("Army", 50, 8, 90,5);
         StartCoroutine(LoadSceneAsync(1));
     }
     IEnumerator LoadSceneAsync(int sceneID)
@@ -46,11 +46,12 @@ public class SceneChange : MonoBehaviour
         }
     }
 
-    private void SetTypes(string type, int propCount,int viewRad, int viewAgl)
+    private void SetTypes(string type, int propCount,int viewRad, int viewAgl,int speed)
     {
         propType = type;
         spawnAmount = propCount;
         enemyViewRadius = viewRad;
         enemyViewAngle = viewAgl;
+        enemySpeed = speed;
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class FieldOfView : MonoBehaviour //this script is what makes the ghosts vision cone
 {
@@ -44,6 +45,8 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
     } 
     void SetStats()
     {
+        NavMeshAgent navMeshAgent = GetComponentInParent<NavMeshAgent>();
+        navMeshAgent.speed = SceneChange.enemySpeed;
         viewRadius = SceneChange.enemyViewRadius;
         viewAngle = SceneChange.enemyViewAngle;
         //flashlight settings
