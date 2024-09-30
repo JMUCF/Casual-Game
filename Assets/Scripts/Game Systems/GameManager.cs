@@ -6,6 +6,7 @@ using static EnemyHitBox;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject LosePanel;
     private void OnEnable()
     {
         EnemyHitBox.onPlayerLose += LoseState;
@@ -17,11 +18,17 @@ public class GameManager : MonoBehaviour
 
     public void LoseState()
     {
-        Invoke("ChangeScene", 1);
-       
+        //Invoke("ChangeScene", 1);
+        EnableLosePanel();
+
     }
-    private void ChangeScene()
+   /*private void ChangeScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }*/
+
+    private void EnableLosePanel()
+    {
+        LosePanel.SetActive(true);
     }
 }
