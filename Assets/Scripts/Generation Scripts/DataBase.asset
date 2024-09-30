@@ -15,7 +15,7 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: Small Prop
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 2, y: 2}
+    <Size>k__BackingField: {x: 3, y: 3}
     <Prefab>k__BackingField: {fileID: 7824008666859720082, guid: d6d681968263ff141b94842e1403ec7b, type: 3}
   - <Name>k__BackingField: Medium Prop
     <ID>k__BackingField: 1
@@ -25,3 +25,7 @@ MonoBehaviour:
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 3, y: 5}
     <Prefab>k__BackingField: {fileID: 749687404995620816, guid: 50fc93d577b681e448b901c2022a2df6, type: 3}
+  - <Name>k__BackingField: Bush
+    <ID>k__BackingField: 3
+    <Size>k__BackingField: {x: 3, y: 3}
+    <Prefab>k__BackingField: {fileID: 3194240739217911602, guid: 8ae1c12c783312f4e9fb7b8f24fa207b, type: 3}

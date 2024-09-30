@@ -9,6 +9,8 @@ public class EnemyBrain : MonoBehaviour
     NavMeshAgent agent;
     private Animator animator;
     public bool canSee = false;
+    public GameObject player;
+    private PlayerController playerController;
     private bool hasPoint = false;
     [SerializeField]
     private bool hasJumped = false;
@@ -18,15 +20,16 @@ public class EnemyBrain : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update() //Really basic enemy AI system
     {
-        if (canSee)
+        if (canSee && !playerController.inBush)
         {
             lastPos = playerTransform.position;
-            Debug.Log("I canSee You");
+            //Debug.Log("I can see You");
             WalkToPoint(lastPos);
             if (!hasJumped)
             {

@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     {
         EnemyHitBox.onPlayerLose += LoseState;
     }
+    private void OnDisable()
+    {
+        EnemyHitBox.onPlayerLose -= LoseState;
+    }
 
     public void LoseState()
     {

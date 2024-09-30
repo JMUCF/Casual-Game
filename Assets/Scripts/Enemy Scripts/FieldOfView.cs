@@ -92,13 +92,9 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
                     Debug.Log("I see you!");
                     enemyBrain.canSee = true;
                     hitbox.enabled = true;
+                    StartCoroutine("ExitFOVDelay"); //probably not the most memory efficient to have this here, but this calls coroutine that marks player as not seen after 1.5 seconds.
+                                                    //If player is still in view it auto marks to true again and calls the coroutine again, but if they're out of FOV they're chilling.
                 }
-                else
-                {
-                    hitbox.enabled = false;
-                    enemyBrain.canSee = false;
-                }
-
             }
         }
     }
@@ -235,6 +231,13 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
             pointA = _pointA;
             pointB = _pointB;
         }
+    }
+
+    private IEnumerator ExitFOVDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        hitbox.enabled = false;
+        enemyBrain.canSee = false;
     }
 
 }

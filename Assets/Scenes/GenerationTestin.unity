@@ -874,6 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1175528298}
   canSee: 0
+  player: {fileID: 1175528292}
   hasJumped: 0
 --- !u!195 &1068776681
 NavMeshAgent:
@@ -1013,6 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1175528298}
   canSee: 0
+  player: {fileID: 0}
   hasJumped: 0
 --- !u!195 &1155564818
 NavMeshAgent:
@@ -1900,7 +1902,8 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
