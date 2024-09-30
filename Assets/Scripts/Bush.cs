@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Bush : MonoBehaviour
 {
-    private Renderer renderer;
-    private Collider collider;
+    private new Renderer renderer;
     public GameObject player;
+    public GameObject enemy;
+    private GameObject enemyColliderObj;
     public PlayerController playerController;
     // Start is called before the first frame update
+
     void Start()
     {
         renderer = GetComponent<Renderer>();
         renderer.material.color = Color.green;
-        collider = GetComponent<Collider>();
+        enemy = GameObject.Find("EnemyPlaceHolder");
+        enemyColliderObj = enemy.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,6 +27,7 @@ public class Bush : MonoBehaviour
             player = other.gameObject;
             playerController = player.GetComponent<PlayerController>();
             playerController.inBush = true;
+            enemyColliderObj.SetActive(false);
         }
     }
 
@@ -35,6 +39,7 @@ public class Bush : MonoBehaviour
             player = other.gameObject;
             playerController = player.GetComponent<PlayerController>();
             playerController.inBush = false;
+            enemyColliderObj.SetActive(true);
         }
     }
 }
