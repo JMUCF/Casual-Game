@@ -13,22 +13,25 @@ public class MeshChanging : MonoBehaviour
     void Start()
     {
         Debug.Log(SceneChange.propType);
-        MeshFilter meshFilter = GetComponent<MeshFilter>();
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        if(SceneChange.propType == "Suburbs")
+        if(SceneChange.propType != null)
         {
-            meshFilter.mesh = Suburb;
-            meshRenderer.material = SuburbMat;
-        }
-        else if (SceneChange.propType == "City")
-        {
-            meshFilter.mesh = City;
-            meshRenderer.material = CityMat;
-        }
-        else if (SceneChange.propType == "Army")
-        {
-            meshFilter.mesh = Army;
-            meshRenderer.material = ArmyMat;
-        }
+            MeshFilter meshFilter = GetComponent<MeshFilter>();
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            if (SceneChange.propType == "Suburbs")
+            {
+                meshFilter.mesh = Suburb;
+                meshRenderer.material = SuburbMat;
+            }
+            else if (SceneChange.propType == "City")
+            {
+                meshFilter.mesh = City;
+                meshRenderer.material = CityMat;
+            }
+            else if (SceneChange.propType == "Army")
+            {
+                meshFilter.mesh = Army;
+                meshRenderer.material = ArmyMat;
+            }
+        } 
     }
 }

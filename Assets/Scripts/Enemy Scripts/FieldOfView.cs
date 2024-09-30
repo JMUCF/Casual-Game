@@ -45,15 +45,18 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
     } 
     void SetStats()
     {
-        NavMeshAgent navMeshAgent = GetComponentInParent<NavMeshAgent>();
-        navMeshAgent.speed = SceneChange.enemySpeed;
-        viewRadius = SceneChange.enemyViewRadius;
-        viewAngle = SceneChange.enemyViewAngle;
-        //flashlight settings
-        Light flashlight = GetComponentInParent<Light>();
-        flashlight.range = viewRadius;
-        flashlight.innerSpotAngle = viewAngle;
-        flashlight.spotAngle = viewAngle;
+        if(SceneChange.enemyViewRadius != 0) 
+        {
+            NavMeshAgent navMeshAgent = GetComponentInParent<NavMeshAgent>();
+            navMeshAgent.speed = SceneChange.enemySpeed;
+            viewRadius = SceneChange.enemyViewRadius;
+            viewAngle = SceneChange.enemyViewAngle;
+            //flashlight settings
+            Light flashlight = GetComponentInParent<Light>();
+            flashlight.range = viewRadius;
+            flashlight.innerSpotAngle = viewAngle;
+            flashlight.spotAngle = viewAngle;
+        }
     }
 
     IEnumerator FindTargetsWithDelay(float delay) //every so often this code runs to check if the player is in vision
