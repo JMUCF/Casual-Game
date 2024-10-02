@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerInteract : MonoBehaviour
 {
+
+    public delegate void OnPLayerWin();
+    public static event OnPLayerWin onPLayerWin;
+
     [SerializeField]
     private GameManager gm;
 
@@ -59,7 +63,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void OnTap()
     {
-        if(canInteract)
-            gm.LoseState();
+        if (canInteract)
+            onPLayerWin?.Invoke();
     }
 }

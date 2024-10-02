@@ -11,6 +11,7 @@ public class FadeInandOut : MonoBehaviour
     private void OnEnable()
     {
         EnemyHitBox.onPlayerLose += FadeAway;
+        PlayerInteract.onPLayerWin += FadeAway;
     }
     private void Start()
     {
