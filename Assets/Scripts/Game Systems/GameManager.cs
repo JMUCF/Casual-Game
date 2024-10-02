@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
         EnemyHitBox.onPlayerLose += LoseState;
         PlayerInteract.onPLayerWin += WinState;
     }
-<<<<<<< Updated upstream
 
-=======
     private void OnDisable()
     {
         EnemyHitBox.onPlayerLose -= LoseState;
@@ -25,7 +23,7 @@ public class GameManager : MonoBehaviour
         Invoke("ChangeScene", 1);
         nextScene = 1;
     }
->>>>>>> Stashed changes
+
     public void LoseState()
     {
         Invoke("ChangeScene", 1);
