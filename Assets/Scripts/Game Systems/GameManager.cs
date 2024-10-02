@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public void WinState()
     {
         Invoke("ChangeScene", 1);
-        nextScene = 1;
+        nextScene = 2;
     }
 
     public void LoseState()

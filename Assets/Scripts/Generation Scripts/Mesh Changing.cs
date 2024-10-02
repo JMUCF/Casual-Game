@@ -8,7 +8,7 @@ public class MeshChanging : MonoBehaviour
     [SerializeField]
     private Mesh Suburb, City, Army;
     [SerializeField]
-    private Material SuburbMat, CityMat, ArmyMat;
+    private Material[] SuburbMat, CityMat, ArmyMat;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +20,17 @@ public class MeshChanging : MonoBehaviour
             if (SceneChange.propType == "Suburbs")
             {
                 meshFilter.mesh = Suburb;
-                meshRenderer.material = SuburbMat;
+                meshRenderer.materials = SuburbMat;
             }
             else if (SceneChange.propType == "City")
             {
                 meshFilter.mesh = City;
-                meshRenderer.material = CityMat;
+                meshRenderer.materials = CityMat;
             }
             else if (SceneChange.propType == "Army")
             {
                 meshFilter.mesh = Army;
-                meshRenderer.material = ArmyMat;
+                meshRenderer.materials = ArmyMat;
             }
         } 
     }

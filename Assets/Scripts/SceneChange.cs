@@ -28,12 +28,12 @@ public class SceneChange : MonoBehaviour
 
     public void PlayCity()
     {
-        SetTypes("City", 25, 6, 60,4);
+        SetTypes("City", 20, 6, 60,3);
         StartCoroutine(LoadSceneAsync(2));
     }
     public void PlayArmy()
     {
-        SetTypes("Army", 50, 8, 90,5);
+        SetTypes("Army", 30, 8, 90,4);
         StartCoroutine(LoadSceneAsync(2));
     }
     IEnumerator LoadSceneAsync(int sceneID)
