@@ -6,9 +6,22 @@ using static EnemyHitBox;
 
 public class GameManager : MonoBehaviour
 {
+    int nextScene;
     private void OnEnable()
     {
         EnemyHitBox.onPlayerLose += LoseState;
+        PlayerInteract.onPLayerWin += WinState;
+    }
+
+    private void OnDisable()
+    {
+        EnemyHitBox.onPlayerLose -= LoseState;
+        PlayerInteract.onPLayerWin -= WinState;
+    }
+    public void WinState()
+    {
+        Invoke("ChangeScene", 1);
+        nextScene = 1;
     }
     private void OnDisable()
     {
@@ -18,10 +31,10 @@ public class GameManager : MonoBehaviour
     public void LoseState()
     {
         Invoke("ChangeScene", 1);
-       
+        nextScene = 0;
     }
     private void ChangeScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(nextScene);
     }
 }
