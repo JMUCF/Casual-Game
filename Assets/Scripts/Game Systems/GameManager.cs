@@ -23,10 +23,6 @@ public class GameManager : MonoBehaviour
         Invoke("ChangeScene", 1);
         nextScene = 1;
     }
-    private void OnDisable()
-    {
-        EnemyHitBox.onPlayerLose -= LoseState;
-    }
 
     public void LoseState()
     {
