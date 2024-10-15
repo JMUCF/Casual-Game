@@ -37,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4054410891770693923}
-  - {fileID: 719450835183424130}
+  - {fileID: 7091845352674890897}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9110715251147173238
@@ -304,7 +304,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &1042224617240540521
+--- !u!1001 &7341415754015470458
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -366,15 +366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2e57e07d53d8c924c8a432e7b527aa52, type: 3}
       propertyPath: m_Name
-      value: Ricky
+      value: Ricky 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e57e07d53d8c924c8a432e7b527aa52, type: 3}
---- !u!4 &719450835183424130 stripped
+--- !u!4 &7091845352674890897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e57e07d53d8c924c8a432e7b527aa52, type: 3}
-  m_PrefabInstance: {fileID: 1042224617240540521}
+  m_PrefabInstance: {fileID: 7341415754015470458}
   m_PrefabAsset: {fileID: 0}
