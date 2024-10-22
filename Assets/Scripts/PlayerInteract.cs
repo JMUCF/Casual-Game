@@ -22,6 +22,7 @@ public class PlayerInteract : MonoBehaviour
     private GameObject button;
     private Image buttonImage;
 
+    public AudioClip rummageSound;
     void Start()
     {
         offset = new Vector3(0f, -0.25f, 0f);
@@ -64,6 +65,10 @@ public class PlayerInteract : MonoBehaviour
     public void OnTap()
     {
         if (canInteract)
+        {
+            SFXPlayer.current.PlaySound(rummageSound);
             onPLayerWin?.Invoke();
+        }
+            
     }
 }

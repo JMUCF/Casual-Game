@@ -3,7 +3,11 @@ guid: a2ffba5afa90df74ab1744e62ef707cc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - enemy: {instanceID: 0}
+  - playerController: {instanceID: 0}
+  - bushClip: {fileID: 8300000, guid: aa59b9d87f793094bb5418ed80d8a96d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

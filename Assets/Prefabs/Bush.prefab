@@ -121,6 +121,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 0}
   playerController: {fileID: 0}
+  bushClip: {fileID: 8300000, guid: 96fdcb05173313745945249234526291, type: 3}
 --- !u!1 &3194240739217911602
 GameObject:
   m_ObjectHideFlags: 0

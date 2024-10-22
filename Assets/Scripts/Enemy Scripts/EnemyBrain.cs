@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static PlayerInteract;
 
 public class EnemyBrain : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class EnemyBrain : MonoBehaviour
     [SerializeField]
     private bool hasJumped = false;
     private Vector3 lastPos;
+
+    public AudioClip jumpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class EnemyBrain : MonoBehaviour
             WalkToPoint(lastPos);
             if (!hasJumped)
             {
+                SFXPlayer.current.PlaySound(jumpSound);
                 hasJumped = true;
                 animator.SetTrigger("Jump");
             }

@@ -30,16 +30,17 @@ public class GameManager : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadStats();
         pointsEarned = data.totalPoints;
-        Debug.Log(pointsEarned);
     }
     #endregion
     private void Start()
     {
+        AudioRandom.Instance.PlayGameMusic();
         LoadPlayerStats();
     }
     public void WinState()
     {
         PlayerInteract.onPLayerWin -= WinState;
+        EnemyHitBox.onPlayerLose -= LoseState;
         nextScene = 2;
         pointsEarned++;
         SavePlayerStats();

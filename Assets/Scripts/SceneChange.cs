@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class SceneChange : MonoBehaviour
 {
-
     [Header("Game Settings")]
     public static string propType;
     public static int spawnAmount, enemyViewRadius, enemyViewAngle, enemySpeed;
@@ -15,8 +14,15 @@ public class SceneChange : MonoBehaviour
     public GameObject loadingScreen;
     public Image LoadingBarFill;
 
-    public void PlayButton()
+    private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            AudioRandom.Instance.PlayMenuMusic();
+        }
+    }
+    public void PlayButton()
+    {   
         StartCoroutine(LoadSceneAsync(1));
     }
 
