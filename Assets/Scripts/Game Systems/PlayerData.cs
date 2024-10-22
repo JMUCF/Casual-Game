@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int starsOwned;
+    public int totalPoints;
     //public gameobject[] skinsOwned;
     public PlayerData(GameManager gameManager)
     {
-        starsOwned += gameManager.pointsEarned;
+        totalPoints += gameManager.pointsEarned;
     }
 }

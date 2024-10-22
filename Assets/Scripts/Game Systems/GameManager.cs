@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int pointsEarned;  
-    int nextScene;
+    private int nextScene;
 
     #region Event Listeners
     private void OnEnable()
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         PlayerInteract.onPLayerWin -= WinState;
     }
     #endregion
-
+    #region Save Systems
     public void SavePlayerStats()
     {
         SaveSystem.SavePlayer(this);
@@ -29,9 +29,10 @@ public class GameManager : MonoBehaviour
     public void LoadPlayerStats()
     {
         PlayerData data = SaveSystem.LoadStats();
-        int point = data.starsOwned;
-        Debug.Log(point);
+        pointsEarned = data.totalPoints;
+        Debug.Log(pointsEarned);
     }
+    #endregion
     private void Start()
     {
         LoadPlayerStats();
