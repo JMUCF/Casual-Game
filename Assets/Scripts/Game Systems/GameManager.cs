@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int pointsEarned;  
+    public int pointsEarned;
     private int nextScene;
 
     #region Event Listeners
