@@ -7808,7 +7808,6 @@ GameObject:
   - component: {fileID: 2032293064}
   - component: {fileID: 2032293063}
   - component: {fileID: 2032293065}
-  - component: {fileID: 2032293066}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7857,18 +7856,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeBG: {fileID: 1836687425}
---- !u!114 &2032293066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032293062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610aa074d28227f49b095b58caaeca4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2041882271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fcc837509920acc4fa3e086f18960da0, type: 3}
