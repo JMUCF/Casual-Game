@@ -12,7 +12,7 @@ public class GroundNavMesh : MonoBehaviour //Builds nav mesh
     void Start()
     {
         navMeshSurface = GetComponent<NavMeshSurface>();
-        Build();
+        Invoke("Build", 1);
     }
 
     public void Build()

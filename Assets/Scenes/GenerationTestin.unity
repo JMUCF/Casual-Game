@@ -71873,6 +71873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 6686144540305406164, guid: 4f128fecb17b4984a9e3200473764e18, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8979080232859127615, guid: 4f128fecb17b4984a9e3200473764e18, type: 3}
       propertyPath: m_PolyMesh.m_Mesh
       value: 

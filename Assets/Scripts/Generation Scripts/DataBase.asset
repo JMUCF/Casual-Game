@@ -15,15 +15,15 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: Small Prop
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 3, y: 3}
+    <Size>k__BackingField: {x: 4, y: 4}
     <Prefab>k__BackingField: {fileID: 7824008666859720082, guid: d6d681968263ff141b94842e1403ec7b, type: 3}
   - <Name>k__BackingField: Medium Prop
     <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 4, y: 4}
+    <Size>k__BackingField: {x: 5, y: 5}
     <Prefab>k__BackingField: {fileID: 749687404995620816, guid: 50fc93d577b681e448b901c2022a2df6, type: 3}
   - <Name>k__BackingField: Large Prop
     <ID>k__BackingField: 2
-    <Size>k__BackingField: {x: 5, y: 5}
+    <Size>k__BackingField: {x: 6, y: 6}
     <Prefab>k__BackingField: {fileID: 1608672656744951087, guid: 32b15074c852b9142935aed2cd4f9627, type: 3}
   - <Name>k__BackingField: Bush
     <ID>k__BackingField: 3
