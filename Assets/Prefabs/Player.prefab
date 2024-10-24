@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2413910928483632431}
   - component: {fileID: -1408568396046804641}
   - component: {fileID: 9062702588372725548}
+  - component: {fileID: 2361608284352942998}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  rummageSound: {fileID: 0}
 --- !u!54 &9062702588372725548
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -197,6 +199,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2361608284352942998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590669155949598213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7270dff2606aa214580fa4fc71c0dd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 7575225455800831531}
+  expandDuration: 1
+  breathIn: {x: 2, y: 2, z: 2}
+  breathOut: {x: 2.1, y: 2, z: 2.2}
+  pusling: 1
 --- !u!1 &2849691745839240382
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,5 +395,10 @@ PrefabInstance:
 --- !u!4 &7091845352674890897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e57e07d53d8c924c8a432e7b527aa52, type: 3}
+  m_PrefabInstance: {fileID: 7341415754015470458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7575225455800831531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e57e07d53d8c924c8a432e7b527aa52, type: 3}
   m_PrefabInstance: {fileID: 7341415754015470458}
   m_PrefabAsset: {fileID: 0}
