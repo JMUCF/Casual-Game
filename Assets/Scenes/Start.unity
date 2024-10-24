@@ -2020,6 +2020,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3688095515049816950, guid: b10c34cc35cc60e43bc19292b5b934b5, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6496848175186437158, guid: b10c34cc35cc60e43bc19292b5b934b5, type: 3}
       propertyPath: GameClips.Array.size
       value: 3
