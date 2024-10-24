@@ -68263,6 +68263,7 @@ GameObject:
   - component: {fileID: 2032293063}
   - component: {fileID: 2032293065}
   - component: {fileID: 2032293067}
+  - component: {fileID: 2032293068}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -68321,9 +68322,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 50e669f90e077ca43b1f02d99f29fa49, type: 2}
-  m_audioClip: {fileID: 8300000, guid: cf0d538570713974a8e095175e5777f1, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.367
+  m_Volume: 0.345
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -68407,6 +68408,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2032293068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032293062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103d647ac8c2dd4caef29fe2be63a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2032293067}
+  suburb: {fileID: 8300000, guid: cf0d538570713974a8e095175e5777f1, type: 3}
+  city: {fileID: 8300000, guid: 361213e2aa5d3f749b4fd48b46150401, type: 3}
+  army: {fileID: 8300000, guid: 361213e2aa5d3f749b4fd48b46150401, type: 3}
 --- !u!1001 &2033782711
 PrefabInstance:
   m_ObjectHideFlags: 0
