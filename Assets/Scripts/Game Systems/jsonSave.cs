@@ -11,9 +11,9 @@ public class jsonSave : MonoBehaviour
         // Initialize your skins array with existing skin objects
         skins = new Skin[]
         {
-        new Skin { skinName = "Skin1", rarity = 1, id = 1, unlocked = false },
-        new Skin { skinName = "Skin2", rarity = 2, id = 2, unlocked = false },
-        new Skin { skinName = "Skin3", rarity = 3, id = 3, unlocked = false }
+        new Skin { skinName = "Skin1", rarity = 0, id = 0, unlocked = false },
+        new Skin { skinName = "Skin2", rarity = 0, id = 1, unlocked = false },
+        new Skin { skinName = "Skin3", rarity = 0, id = 2, unlocked = false }
         };
     }
 
@@ -61,19 +61,24 @@ public class jsonSave : MonoBehaviour
 
         foreach (SaveSkin data in wrapper.skins)
         {
-            Debug.Log("in first foreach loop, data.id: " + + data.id);
             foreach (Skin skin in skins)
             {
-                Debug.Log("in second foreach loop, skin.id: " + skin.id);
                 if (skin.id == data.id)
                 {
-                    skin.skinName = data.skinName;
-                    skin.rarity = data.rarity;
-                    skin.unlocked = data.unlocked;
-                    Debug.Log("Loaded skin: " + skin.skinName);
+                    skins[skin.id].skinName = data.skinName;
+                    skins[skin.id].rarity = data.rarity;
+                    skins[skin.id].unlocked = data.unlocked;
+                    Debug.Log("Loaded skin: " + data.skinName);
                 }
             }
         }
+    }
+
+    public void TestingSave() //run this to make sure that the skins are in fact loaded 
+    {
+        Debug.Log(skins[0].skinName);
+        Debug.Log(skins[1].skinName);
+        Debug.Log(skins[2].skinName);
     }
 }
 

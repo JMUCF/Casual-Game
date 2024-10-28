@@ -8,5 +8,5 @@ public class Skin : MonoBehaviour
     public int rarity;
     public int id;
     public bool unlocked;
-    public Material[] colors;
+    public Color[] colors;
 }
