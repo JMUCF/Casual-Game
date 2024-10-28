@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int pointsEarned;  
     private int nextScene;
+    private static int ScenesCompleted = 0;
 
     #region Event Listeners
     private void OnEnable()
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         EnemyHitBox.onPlayerLose -= LoseState;
         nextScene = 2;
         pointsEarned++;
+        ScenesCompleted++;
         SavePlayerStats();
         Invoke("ChangeScene", 1);
     }
@@ -55,6 +57,15 @@ public class GameManager : MonoBehaviour
     }
     private void ChangeScene()
     {
-        SceneManager.LoadScene(nextScene);
+        if (ScenesCompleted == 3)
+        {
+            ScenesCompleted = 0;
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        
     }
 }
