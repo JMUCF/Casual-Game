@@ -4,24 +4,38 @@ using UnityEngine;
 
 public class jsonSave : MonoBehaviour
 {
-    public Skin[] skins; // Skins that are currently in the game
+    public SkinData[] skinDataAssets;
+    public List<Skin> skins = new List<Skin>();
 
     void Start()
     {
-        // Initialize your skins array with existing skin objects
-        skins = new Skin[]
+        InitializeSkinsFromData();
+        Invoke("LoadSkins", .15f);
+    }
+
+    private void InitializeSkinsFromData()
+    {
+        skins.Clear();
+
+        foreach (var data in skinDataAssets)
         {
-        new Skin { skinName = "Skin1", rarity = 0, id = 0, unlocked = false },
-        new Skin { skinName = "Skin2", rarity = 0, id = 1, unlocked = false },
-        new Skin { skinName = "Skin3", rarity = 0, id = 2, unlocked = false }
-        };
+            Skin skin = new Skin
+            {
+                skinName = data.skinName,
+                rarity = data.rarity,
+                id = data.id,
+                unlocked = data.unlocked,
+                materials = data.materials,
+                selected = false
+            };
+            skins.Add(skin);
+        }
     }
 
     public void SaveSkins()
     {
         Debug.Log("Saving skins");
 
-        // Convert skins to serializable data
         List<SaveSkin> saveData = new List<SaveSkin>();
         foreach (Skin skin in skins)
         {
@@ -30,15 +44,14 @@ public class jsonSave : MonoBehaviour
                 skinName = skin.skinName,
                 rarity = skin.rarity,
                 id = skin.id,
-                unlocked = skin.unlocked
+                unlocked = skin.unlocked,
+                selected = skin.selected
             });
         }
 
-        // Wrap data in a list wrapper
         SaveLoadSkinsWrapper wrapper = new SaveLoadSkinsWrapper { skins = saveData };
         string json = JsonUtility.ToJson(wrapper, true);
 
-        // Save the data to a file
         string path = Application.persistentDataPath + "/SavedSkins.json";
         File.WriteAllText(path, json);
         Debug.Log("File saved at: " + path);
@@ -46,7 +59,7 @@ public class jsonSave : MonoBehaviour
 
     public void LoadSkins()
     {
-        Debug.Log("in load");
+        Debug.Log("Loading skins");
         string path = Application.persistentDataPath + "/SavedSkins.json";
 
         if (!File.Exists(path))
@@ -55,7 +68,6 @@ public class jsonSave : MonoBehaviour
             return;
         }
 
-        // Load and deserialize data
         string json = File.ReadAllText(path);
         SaveLoadSkinsWrapper wrapper = JsonUtility.FromJson<SaveLoadSkinsWrapper>(json);
 
@@ -65,20 +77,20 @@ public class jsonSave : MonoBehaviour
             {
                 if (skin.id == data.id)
                 {
-                    skins[skin.id].skinName = data.skinName;
-                    skins[skin.id].rarity = data.rarity;
-                    skins[skin.id].unlocked = data.unlocked;
+                    skin.unlocked = data.unlocked;
+                    skin.selected = data.selected;
                     Debug.Log("Loaded skin: " + data.skinName);
                 }
             }
         }
     }
 
-    public void TestingSave() //run this to make sure that the skins are in fact loaded 
+    public void TestingSave()
     {
-        Debug.Log(skins[0].skinName);
-        Debug.Log(skins[1].skinName);
-        Debug.Log(skins[2].skinName);
+        foreach (var skin in skins)
+        {
+            Debug.Log("Skin: " + skin.skinName + " | Unlocked: " + skin.unlocked);
+        }
     }
 }
 
@@ -89,6 +101,7 @@ public class SaveSkin
     public int rarity;
     public int id;
     public bool unlocked;
+    public bool selected;
 }
 
 [System.Serializable]

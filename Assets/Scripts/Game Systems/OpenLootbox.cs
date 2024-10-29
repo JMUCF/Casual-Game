@@ -1,51 +1,39 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class OpenLootbox : MonoBehaviour
 {
-    private float randomNum;
-    public int common, uncommon, rare, legendary;
-    private PlayerData playerData;
+    public jsonSave save;
 
-    Dictionary<string, float> dropRates = new Dictionary<string, float>()
+    public void OpenLootBox()
     {
-        {"Common", 55},
-        {"Uncommon", 30},
-        {"Rare", 12},
-        {"Legendary", 3}
-    };
+        List<Skin> availableSkins = GetAvailableSkins();
 
-    void Start()
-    {
-        playerData = SaveSystem.LoadStats();
-
-        for (int i = 0; i < 100; i++)
+        if (availableSkins.Count > 0)
         {
-            GetRandomLoot();
+            int randomSkinIndex = Random.Range(0, availableSkins.Count);
+            Skin unlockedSkin = availableSkins[randomSkinIndex];
+            unlockedSkin.unlocked = true;
+            Debug.Log("Unlocked Skin: " + unlockedSkin.skinName);
         }
-        PrintAmounts();
-    }
-
-    void GetRandomLoot()
-    {
-        randomNum = Random.Range(0, 100);
-
-        if (randomNum < dropRates["Common"])
-            common++;
-        else if (randomNum < dropRates["Uncommon"] + dropRates["Common"])
-            uncommon++;
-        else if (randomNum < dropRates["Rare"] + dropRates["Uncommon"] + dropRates["Common"])
-            rare++;
         else
-            legendary++;
+        {
+            Debug.Log("No skins available to unlock.");
+        }
+
+        save.SaveSkins();
     }
 
-    void PrintAmounts()
+    private List<Skin> GetAvailableSkins()
     {
-        Debug.Log("Common: " + common);
-        Debug.Log("Uncommon: " + uncommon);
-        Debug.Log("Rare: " + rare);
-        Debug.Log("Legendary: " + legendary);
+        List<Skin> filteredSkins = new List<Skin>();
+        foreach (var skin in save.skins)
+        {
+            if (!skin.unlocked)
+            {
+                filteredSkins.Add(skin);
+            }
+        }
+        return filteredSkins;
     }
 }

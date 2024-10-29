@@ -721,7 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a35be9c6f0e654093994838fc05ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skins: []
 --- !u!1 &445940396
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +971,7 @@ GameObject:
   - component: {fileID: 766026311}
   - component: {fileID: 766026310}
   - component: {fileID: 766026309}
+  - component: {fileID: 766026312}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -1041,7 +1041,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 766026310}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 766026312}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: SkinsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &766026310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,6 +1092,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766026307}
   m_CullTransparentMesh: 1
+--- !u!114 &766026312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766026307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f309837e9b52d8b4c83408d12cfd11ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 2026655635}
+  LoadingBarFill: {fileID: 336702368}
 --- !u!1 &941881067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1688810564
 RectTransform:
   m_ObjectHideFlags: 0

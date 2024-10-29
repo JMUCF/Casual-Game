@@ -15,9 +15,19 @@ public class SceneChange : MonoBehaviour
     public GameObject loadingScreen;
     public Image LoadingBarFill;
 
+    public void SkinsButton()
+    {
+        StartCoroutine(LoadSceneAsync(3));
+    }
+
     public void PlayButton()
     {
         StartCoroutine(LoadSceneAsync(1));
+    }
+
+    public void MenuButton()
+    {
+        StartCoroutine(LoadSceneAsync(0));
     }
 
     public void SuburbsButton()
