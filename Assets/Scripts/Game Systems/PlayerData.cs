@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerData
 {
     public int totalPoints;
-    //public gameobject[] skinsOwned;
+
     public PlayerData(GameManager gameManager)
     {
-        totalPoints += gameManager.pointsEarned;
+        totalPoints = gameManager.pointsEarned;
     }
 }

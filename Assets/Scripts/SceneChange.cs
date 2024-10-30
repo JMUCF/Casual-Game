@@ -26,6 +26,11 @@ public class SceneChange : MonoBehaviour
         StartCoroutine(LoadSceneAsync(1));
     }
 
+    public void MenuButton()
+    {
+        StartCoroutine(LoadSceneAsync(0));
+    }
+
     public void SuburbsButton()
     {
         SetTypes("Suburbs", 10, 4, 45, 2);
