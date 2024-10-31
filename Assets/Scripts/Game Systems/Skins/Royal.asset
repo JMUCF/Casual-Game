@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c787f555745a214e9201610eacc163d, type: 3}
+  m_Name: Royal
+  m_EditorClassIdentifier: 
+  skinName: Royal
+  rarity: 3
+  id: 5
+  unlocked: 0
+  materials:
+  - {fileID: 2100000, guid: 08e560a0189f5b14eb16edc15d31c745, type: 2}
+  - {fileID: 2100000, guid: 08e560a0189f5b14eb16edc15d31c745, type: 2}
+  - {fileID: 2100000, guid: 08e560a0189f5b14eb16edc15d31c745, type: 2}
+  - {fileID: 2100000, guid: 08e560a0189f5b14eb16edc15d31c745, type: 2}
+  - {fileID: 2100000, guid: 08e560a0189f5b14eb16edc15d31c745, type: 2}
+  - {fileID: 2100000, guid: 270a272c84f402c42a0740524da204ed, type: 2}
+  - {fileID: 2100000, guid: 08e560a0189f5b14eb16edc15d31c745, type: 2}

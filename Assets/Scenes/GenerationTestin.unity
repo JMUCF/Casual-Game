@@ -43951,7 +43951,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.66816485, g: 0.69498086, b: 0.8584906, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -68264,6 +68264,9 @@ GameObject:
   - component: {fileID: 2032293065}
   - component: {fileID: 2032293067}
   - component: {fileID: 2032293068}
+  - component: {fileID: 2032293071}
+  - component: {fileID: 2032293070}
+  - component: {fileID: 2032293069}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -68424,6 +68427,55 @@ MonoBehaviour:
   suburb: {fileID: 8300000, guid: cf0d538570713974a8e095175e5777f1, type: 3}
   city: {fileID: 8300000, guid: 361213e2aa5d3f749b4fd48b46150401, type: 3}
   army: {fileID: 8300000, guid: 361213e2aa5d3f749b4fd48b46150401, type: 3}
+--- !u!114 &2032293069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032293062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c46bb3472f32a64fa7910713164a187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1175528292}
+  save: {fileID: 2032293070}
+--- !u!114 &2032293070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032293062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7061efc7264ed1b44a718e7e29214ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinDataAssets: []
+  skins: []
+--- !u!114 &2032293071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032293062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427815a3f97775243b90c55288c1d2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonSaveScript: {fileID: 2032293070}
+  skinDataAssets:
+  - {fileID: 11400000, guid: c8d0dcad025162346bf0d079f55010a0, type: 2}
+  - {fileID: 11400000, guid: 5164b332685106f4b8aa9b2aa426ef3e, type: 2}
+  - {fileID: 11400000, guid: 983fc35ae5e3e20439701e61123b06ff, type: 2}
+  - {fileID: 11400000, guid: 86a8d80db2f02bb4cb3f2bc4d335a3db, type: 2}
+  - {fileID: 11400000, guid: 6d3ef6121b4c1ca49905c5a5e904aa87, type: 2}
+  - {fileID: 11400000, guid: 0f8f917fad5cf1b41a41a40cca10a416, type: 2}
+  - {fileID: 11400000, guid: 86c167f3f4fae99479c8e5c226bb054c, type: 2}
 --- !u!1001 &2033782711
 PrefabInstance:
   m_ObjectHideFlags: 0

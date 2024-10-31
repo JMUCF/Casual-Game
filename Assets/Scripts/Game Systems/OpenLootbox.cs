@@ -5,6 +5,13 @@ public class OpenLootbox : MonoBehaviour
 {
     public jsonSave save;
     public GameManager manager;
+    private Animator animator;
+
+    private void Awake()
+    {
+        // Get the Animator component on the same GameObject
+        animator = GetComponent<Animator>();
+    }
 
     public void OpenLootBox()
     {
@@ -12,6 +19,9 @@ public class OpenLootbox : MonoBehaviour
 
         if (availableSkins.Count > 0 && CheckPoints())
         {
+            // Play the loot box animation once
+            animator.SetTrigger("PlayLootBoxAnimation");
+
             manager.pointsEarned -= 3;
             int randomSkinIndex = Random.Range(0, availableSkins.Count);
             Skin unlockedSkin = availableSkins[randomSkinIndex];
@@ -23,15 +33,14 @@ public class OpenLootbox : MonoBehaviour
         {
             Debug.Log("No skins available to unlock.");
         }
+
         save.SaveSkins();
     }
 
     private bool CheckPoints()
     {
         PlayerData data = SaveSystem.LoadStats();
-        if (data.totalPoints >= 3)
-            return true;
-        return false;
+        return data.totalPoints >= 3;
     }
 
     private List<Skin> GetAvailableSkins()
