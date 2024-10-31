@@ -82,10 +82,17 @@ public class SceneChange : MonoBehaviour
         enemySpeed = speed;
     }
 
+    private Vector3 buttonSize;
+    private GameObject lastButton;
     public void LeanButton(GameObject button)
     {
         MenuSFX.SFXInstance.EnterSound();
-        Vector3 buttonSize = button.transform.localScale;
-        LeanTween.scale(button, buttonSize*2, 0.1f);
+        lastButton = button;
+        buttonSize = button.transform.localScale;
+        LeanTween.scale(button, buttonSize*5, 0.1f).setOnComplete(resetButton);
+    }
+    private void resetButton()
+    {
+        lastButton.transform.localScale = buttonSize;
     }
 }
