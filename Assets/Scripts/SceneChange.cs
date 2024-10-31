@@ -50,7 +50,7 @@ public class SceneChange : MonoBehaviour
     }
     public void PlayArmy()
     {
-        SetTypes("Army", 30, 8, 90,4);
+        SetTypes("Army", 25, 8, 90,4);
         StartCoroutine(LoadSceneAsync(2));
     }
     IEnumerator LoadSceneAsync(int sceneID)
