@@ -53,6 +53,10 @@ public class SceneChange : MonoBehaviour
         SetTypes("Army", 20, 8, 90,4);
         StartCoroutine(LoadSceneAsync(2));
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
     IEnumerator LoadSceneAsync(int sceneID)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
@@ -76,5 +80,12 @@ public class SceneChange : MonoBehaviour
         enemyViewRadius = viewRad;
         enemyViewAngle = viewAgl;
         enemySpeed = speed;
+    }
+
+    public void LeanButton(GameObject button)
+    {
+        MenuSFX.SFXInstance.EnterSound();
+        Vector3 buttonSize = button.transform.localScale;
+        LeanTween.scale(button, buttonSize*2, 0.1f);
     }
 }

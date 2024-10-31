@@ -6,9 +6,22 @@ public class MenuSFX : MonoBehaviour
 {
     [SerializeField]
     private AudioSource audioSource;
+    public static MenuSFX SFXInstance;
 
     public AudioClip enter, exit;
 
+    private void Awake()
+    {
+        if (SFXInstance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            SFXInstance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
     public void ExitSound()
     {
         audioSource.clip = exit;

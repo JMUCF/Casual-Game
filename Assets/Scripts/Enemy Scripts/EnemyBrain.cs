@@ -6,23 +6,27 @@ using static PlayerInteract;
 
 public class EnemyBrain : MonoBehaviour
 {
+
+    [Header("PlayerStuff")]
     public Transform playerTransform;
-    NavMeshAgent agent;
-    private Animator animator;
-    public bool canSee = false;
     public GameObject player;
     private PlayerController playerController;
-    private bool hasPoint = false;
-    [SerializeField]
-    private bool hasJumped = false;
-    private Vector3 lastPos;
 
+    [Header("Navigation")]
+    NavMeshAgent agent;
+    private Vector3 lastPos;
+    public bool canSee = false;
+    private bool hasPoint = false;
+
+    [Header("Visuals")]
+    [SerializeField] private bool hasJumped = false;
+    [SerializeField] private CharaterJump charaterJump;
     public AudioClip jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
         playerController = player.GetComponent<PlayerController>();
     }
 
@@ -32,18 +36,17 @@ public class EnemyBrain : MonoBehaviour
         if (canSee && !playerController.inBush)
         {
             lastPos = playerTransform.position;
-            //Debug.Log("I can see You");
+            
             WalkToPoint(lastPos);
             if (!hasJumped)
             {
-                SFXPlayer.current.PlaySound(jumpSound);
                 hasJumped = true;
-                animator.SetTrigger("Jump");
+                SFXPlayer.current.PlaySound(jumpSound);
+                charaterJump.StartJumping();
             }
         }
         else
-        {
-            
+        {   
            if(!hasPoint && agent.remainingDistance <= agent.stoppingDistance)
            {
                 hasPoint = true;
