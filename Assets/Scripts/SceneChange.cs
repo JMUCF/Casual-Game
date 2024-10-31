@@ -39,7 +39,7 @@ public class SceneChange : MonoBehaviour
 
     public void SuburbsButton()
     {
-        SetTypes("Suburbs", 10, 4, 45, 2);
+        SetTypes("Suburbs", 20, 4, 45, 2);
         StartCoroutine(LoadSceneAsync(2));
     }
 
@@ -50,7 +50,7 @@ public class SceneChange : MonoBehaviour
     }
     public void PlayArmy()
     {
-        SetTypes("Army", 25, 8, 90,4);
+        SetTypes("Army", 20, 8, 90,4);
         StartCoroutine(LoadSceneAsync(2));
     }
     IEnumerator LoadSceneAsync(int sceneID)
