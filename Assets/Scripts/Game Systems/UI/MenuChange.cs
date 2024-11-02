@@ -9,7 +9,6 @@ public class MenuChange : MonoBehaviour
 
     private void Start()
     {
-        
         mainMenu.transform.LeanMoveLocalY(10, 5f).setLoopPingPong();
     }
     public void BackButton()

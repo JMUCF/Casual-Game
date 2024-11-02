@@ -89,7 +89,7 @@ public class SceneChange : MonoBehaviour
         MenuSFX.SFXInstance.EnterSound();
         lastButton = button;
         buttonSize = button.transform.localScale;
-        LeanTween.scale(button, buttonSize*5, 0.1f).setOnComplete(resetButton);
+        LeanTween.scale(button, buttonSize*2, 0.5f).setOnComplete(resetButton);
     }
     private void resetButton()
     {
