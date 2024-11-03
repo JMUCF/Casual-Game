@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
     private Vector3 offset;
     private GameObject button;
     private Image buttonImage;
-
+    public Color imageColor;
     public AudioClip rummageSound;
     void Start()
     {
@@ -29,7 +29,7 @@ public class PlayerInteract : MonoBehaviour
         maxDistance = 1.5f;
         button = GameObject.FindWithTag("InteractButton");
         buttonImage = button.GetComponent<Image>();
-        buttonImage.color = Color.gray;
+        buttonImage.color = imageColor;
     }
 
     void FixedUpdate()
@@ -46,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
-            buttonImage.color = Color.gray;
+            buttonImage.color = imageColor
             canInteract = false;
         }
 
