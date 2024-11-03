@@ -89,7 +89,6 @@ public class FieldOfView : MonoBehaviour //this script is what makes the ghosts 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
-                    Debug.Log("I see you!");
                     enemyBrain.canSee = true;
                     hitbox.enabled = true;
                     StartCoroutine("ExitFOVDelay"); //probably not the most memory efficient to have this here, but this calls coroutine that marks player as not seen after 1.5 seconds.

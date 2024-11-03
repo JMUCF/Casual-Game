@@ -25,8 +25,6 @@ public class PlacementSystem : MonoBehaviour
 
     private List<GameObject> placedObjects = new();
 
-    [SerializeField] private GroundNavMesh NavMesh;
-
     public void Start()
     {
         if (SceneChange.spawnAmount != 0) 
@@ -77,7 +75,6 @@ public class PlacementSystem : MonoBehaviour
             {
                 PlaceStructure(gridPos, rng, parent);
             }
-            NavMesh.Build();
         }
 
     }
