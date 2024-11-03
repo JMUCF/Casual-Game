@@ -46,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
-            buttonImage.color = imageColor
+            buttonImage.color = imageColor;
             canInteract = false;
         }
 
