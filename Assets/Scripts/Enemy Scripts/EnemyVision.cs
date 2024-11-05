@@ -5,6 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class EnemyVision : MonoBehaviour
 {
+
     private EnemyBrain enemyBrain;
     public float distance = 10;
     public float angle = 30;

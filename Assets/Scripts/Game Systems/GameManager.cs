@@ -5,21 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    //Stars
     public int pointsEarned;
+    public int starsEarned;
+
+
+    //Star Conditions
+    [SerializeField]
+    private bool playerSeen = false;
+
+    //SceneStuff
     private int nextScene;
     private static int ScenesCompleted = 0;
+
+
+    //UIStuff
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
+    //Enemy
+    public GameObject Enemy;
 
     #region Event Listeners
     private void OnEnable()
     {
         EnemyHitBox.onPlayerLose += LoseState;
-        PlayerInteract.onPLayerWin += WinState;
+
+        PlayerInteract.earlyWin += WinState;
+        PlayerInteract.earlyWin += EarnAStar;
+
+        PlayerInteract.lateWin += WinState;
+
+        EnemyBrain.wasSeen += wasSeen;
     }
 
     private void OnDisable()
     {
         EnemyHitBox.onPlayerLose -= LoseState;
-        PlayerInteract.onPLayerWin -= WinState;
+
+        PlayerInteract.earlyWin -= WinState;
+
+        PlayerInteract.lateWin -= WinState;
     }
     #endregion
     #region Save Systems
@@ -35,28 +62,62 @@ public class GameManager : MonoBehaviour
     #endregion
     private void Start()
     {
-        AudioRandom.Instance.PlayGameMusic();
+        Enemy.SetActive(true);
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
         LoadPlayerStats();
     }
     public void WinState()
     {
-        PlayerInteract.onPLayerWin -= WinState;
-        EnemyHitBox.onPlayerLose -= LoseState;
+        Enemy.SetActive(false);
         nextScene = 2;
-        pointsEarned++;
+        EarnAStar();
         ScenesCompleted++;
+        if (!playerSeen) 
+        { 
+            EarnAStar(); 
+        }
         SavePlayerStats();
-        Invoke("ChangeScene", 1);
+        pointsEarned += starsEarned;
+        winScreen.SetActive(true);
+        LeanTween.moveLocalY(winScreen, 0, 1);
     }
+
+    private void EarnAStar()
+    {
+        starsEarned++;
+    }
+    private void wasSeen()
+    {
+        Debug.Log("I WAS SEEN");
+        playerSeen = true;
+    }
+
 
     public void LoseState()
     {
         EnemyHitBox.onPlayerLose -= LoseState;
-        Invoke("ChangeScene", 1);
+        loseScreen.SetActive(true);
         nextScene = 0;
+        LeanTween.moveLocalY(loseScreen, 0, 1);
     }
-    private void ChangeScene()
+
+    //WIN/LOSE UI functions
+
+    public void ReturnToHome()
     {
+        ScenesCompleted = 0;
+        MenuSFX.SFXInstance.EnterSound();
+        SceneManager.LoadScene(0);
+    }
+    public void RestartGame()
+    {
+        MenuSFX.SFXInstance.EnterSound();
+        SceneManager.LoadScene(2);
+    }
+    public void Contiune()
+    {
+        MenuSFX.SFXInstance.EnterSound();
         if (ScenesCompleted == 3)
         {
             ScenesCompleted = 0;
@@ -64,8 +125,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(nextScene);
+            SceneManager.LoadScene(2);
         }
-        
+
     }
 }

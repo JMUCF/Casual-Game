@@ -10,6 +10,7 @@ public class SFXPlayer : MonoBehaviour
 
     private void Start()
     {
+        AudioRandom.Instance.PlayGameMusic();
         current = this;
         audioSource = GetComponent<AudioSource>();
     }

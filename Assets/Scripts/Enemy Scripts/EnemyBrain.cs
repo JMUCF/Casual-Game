@@ -7,6 +7,9 @@ using static PlayerInteract;
 public class EnemyBrain : MonoBehaviour
 {
 
+    public delegate void OnPlayerSee();
+    public static event OnPlayerSee wasSeen;
+
     [Header("PlayerStuff")]
     public Transform playerTransform;
     public GameObject player;
@@ -24,11 +27,14 @@ public class EnemyBrain : MonoBehaviour
     public AudioClip jumpSound;
 
     // Start is called before the first frame update
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.enabled = true;
         playerController = player.GetComponent<PlayerController>();
     }
+
 
     // Update is called once per frame
     void Update() //Really basic enemy AI system
@@ -40,6 +46,7 @@ public class EnemyBrain : MonoBehaviour
             WalkToPoint(lastPos);
             if (!hasJumped)
             {
+                wasSeen?.Invoke();
                 hasJumped = true;
                 SFXPlayer.current.PlaySound(jumpSound);
                 charaterJump.StartJumping();

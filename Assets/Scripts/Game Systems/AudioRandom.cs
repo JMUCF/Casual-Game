@@ -30,6 +30,7 @@ public class AudioRandom : MonoBehaviour
     }
     public void PlayGameMusic()
     {
+        Debug.Log("WHAT");
         source.clip = GameClips[Random.Range(0, GameClips.Length)];
         source.Play();
     }

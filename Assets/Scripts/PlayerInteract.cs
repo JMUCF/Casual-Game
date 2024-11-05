@@ -8,7 +8,9 @@ public class PlayerInteract : MonoBehaviour
 {
 
     public delegate void OnPLayerWin();
-    public static event OnPLayerWin onPLayerWin;
+    public static event OnPLayerWin earlyWin;
+    public delegate void OnPlayerWinLate();
+    public static event OnPlayerWinLate lateWin;
 
     [SerializeField]
     private GameManager gm;
@@ -21,8 +23,9 @@ public class PlayerInteract : MonoBehaviour
     private Vector3 offset;
     private GameObject button;
     private Image buttonImage;
-    public Color imageColor;
+    public Color imageColor, changedColor;
     public AudioClip rummageSound;
+    private float timer;
     void Start()
     {
         offset = new Vector3(0f, -0.25f, 0f);
@@ -40,12 +43,14 @@ public class PlayerInteract : MonoBehaviour
             //Debug.Log("Hit : " + hit.collider.name);
             if(hit.collider.name == "Sphere")
             {
-                buttonImage.color = Color.green;
+                timer = timer;
+                buttonImage.color = changedColor;
                 canInteract = true;
             }
         }
         else
         {
+            timer = Time.time;
             buttonImage.color = imageColor;
             canInteract = false;
         }
@@ -67,7 +72,16 @@ public class PlayerInteract : MonoBehaviour
         if (canInteract)
         {
             SFXPlayer.current.PlaySound(rummageSound);
-            onPLayerWin?.Invoke();
+            if(timer >= 30)
+            {
+                lateWin?.Invoke();
+                Debug.Log("LATE");
+            }
+            else
+            {
+                earlyWin?.Invoke();
+                Debug.Log("earlyWin");
+            }
         }
             
     }
