@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharaterJump : MonoBehaviour
 {
-
     float startPos;
     private void Start()
     {

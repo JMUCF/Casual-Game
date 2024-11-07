@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private bool playerSeen = false;
 
     //SceneStuff
-    private int nextScene;
     private static int ScenesCompleted = 0;
 
 
@@ -70,7 +69,6 @@ public class GameManager : MonoBehaviour
     public void WinState()
     {
         Enemy.SetActive(false);
-        nextScene = 2;
         EarnAStar();
         ScenesCompleted++;
         if (!playerSeen) 
@@ -98,7 +96,6 @@ public class GameManager : MonoBehaviour
     {
         EnemyHitBox.onPlayerLose -= LoseState;
         loseScreen.SetActive(true);
-        nextScene = 0;
         LeanTween.moveLocalY(loseScreen, 0, 1);
     }
 

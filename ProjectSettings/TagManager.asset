@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obj
   - InteractButton
+  - Animator
   layers:
   - Default
   - TransparentFX

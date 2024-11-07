@@ -6,7 +6,7 @@ using static PlayerInteract;
 
 public class EnemyBrain : MonoBehaviour
 {
-
+    public Animator animator;
     public delegate void OnPlayerSee();
     public static event OnPlayerSee wasSeen;
 
@@ -30,6 +30,7 @@ public class EnemyBrain : MonoBehaviour
 
     void Start()
     {
+        EnemyHitBox.onPlayerLose += AttackAnim;
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
         playerController = player.GetComponent<PlayerController>();
@@ -42,7 +43,7 @@ public class EnemyBrain : MonoBehaviour
         if (canSee && !playerController.inBush)
         {
             lastPos = playerTransform.position;
-            
+
             WalkToPoint(lastPos);
             if (!hasJumped)
             {
@@ -53,18 +54,28 @@ public class EnemyBrain : MonoBehaviour
             }
         }
         else
-        {   
-           if(!hasPoint && agent.remainingDistance <= agent.stoppingDistance)
-           {
+        {
+            if (!hasPoint && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                
                 hasPoint = true;
                 Wander();
-           }
+            }
         }
-
+        Debug.Log(agent.remainingDistance);
+        if(agent.remainingDistance <= .5)
+        {
+            animator.SetFloat("Blend", 0);
+        }
+    }
+    public void AttackAnim()
+    {
+        animator.SetTrigger("Attack");
     }
 
     void Wander()
     {
+        animator.SetFloat("Blend", 1);
         hasJumped = false;
         WorldBounds worldBounds = GameObject.FindObjectOfType<WorldBounds>();
         Vector3 min = worldBounds.min.position;
