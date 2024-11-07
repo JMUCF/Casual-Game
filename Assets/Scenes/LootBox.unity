@@ -2752,12 +2752,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384080321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f6615209594f03479bd6664a38e2607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointsEarned: 0
+  starsEarned: 0
+  playerSeen: 0
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
+  Enemy: {fileID: 0}
 --- !u!1001 &1451197809
 PrefabInstance:
   m_ObjectHideFlags: 0

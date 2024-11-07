@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
         { 
             EarnAStar(); 
         }
-        SavePlayerStats();
         pointsEarned += starsEarned;
+        SavePlayerStats();
         winScreen.SetActive(true);
         LeanTween.moveLocalY(winScreen, 0, 1);
     }

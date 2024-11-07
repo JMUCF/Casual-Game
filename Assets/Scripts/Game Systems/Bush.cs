@@ -18,7 +18,7 @@ public class Bush : MonoBehaviour
     {
         renderer = GetComponent<Renderer>();
         renderer.material.color = Color.green;
-        enemy = GameObject.Find("NewEnemyPlaceHolder");
+        enemy = GameObject.Find("Enemy");
         enemyColliderObj = enemy.transform.GetChild(0).gameObject;
     }
 

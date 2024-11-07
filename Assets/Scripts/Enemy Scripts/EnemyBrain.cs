@@ -62,7 +62,7 @@ public class EnemyBrain : MonoBehaviour
                 Wander();
             }
         }
-        Debug.Log(agent.remainingDistance);
+        //Debug.Log(agent.remainingDistance);
         if(agent.remainingDistance <= .5)
         {
             animator.SetFloat("Blend", 0);
