@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuChange : MonoBehaviour
 {
-    public GameObject mainMenu, howToPlay, credits;
+    public GameObject mainMenu, howToPlay, credits, settings;
     private GameObject currentMenu;
 
     private void Start()
@@ -27,5 +27,11 @@ public class MenuChange : MonoBehaviour
         mainMenu.SetActive(false);
         credits.SetActive(true);
         currentMenu = credits;
+    }
+
+    public void SettingsMenu(){
+        mainMenu.SetActive(false);
+        settings.SetActive(true);
+        currentMenu = settings;
     }
 }
