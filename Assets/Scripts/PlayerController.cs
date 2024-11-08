@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private float speed;
+    [SerializeField] private Animator animator;
     public bool inBush;
     // Update is called once per frame
     void Update()
@@ -20,6 +21,11 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+            animator.SetFloat("Blend", 1);
+        }
+        else
+        {
+            animator.SetFloat("Blend", 0);
         }
     }
 }
