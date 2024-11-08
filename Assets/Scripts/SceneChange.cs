@@ -66,7 +66,6 @@ public class SceneChange : MonoBehaviour
         while (!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-            Debug.Log(progressValue);
             LoadingBarFill.fillAmount = progressValue;
 
             yield return null;

@@ -5,18 +5,22 @@ using UnityEngine;
 public class FadeInandOut : MonoBehaviour
 {
 
-    public CanvasGroup fadeBG;  
+    public CanvasGroup fadeBG;
     private bool isFading = false;
     // Start is called before the first frame update
     private void OnEnable()
     {
-        EnemyHitBox.onPlayerLose += FadeAway;
+        // EnemyHitBox.onPlayerLose += FadeAway;
         PlayerInteract.earlyWin += FadeAway;
         PlayerInteract.lateWin += FadeAway;
     }
     private void Start()
     {
         fadeBG.alpha = 1f;
+    }
+    public void FadeStart()
+    {
+        isFading = true;
     }
 
     // Update is called once per frame

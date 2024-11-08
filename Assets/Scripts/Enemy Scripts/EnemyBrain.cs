@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using static PlayerInteract;
 
 public class EnemyBrain : MonoBehaviour
 {
     public Animator animator;
+    
     public delegate void OnPlayerSee();
     public static event OnPlayerSee wasSeen;
+
+
 
     [Header("PlayerStuff")]
     public Transform playerTransform;
     public GameObject player;
     private PlayerController playerController;
-
+    public UnityEvent sawPlayer;
     [Header("Navigation")]
     NavMeshAgent agent;
     private Vector3 lastPos;
@@ -30,10 +34,18 @@ public class EnemyBrain : MonoBehaviour
 
     void Start()
     {
-        EnemyHitBox.onPlayerLose += AttackAnim;
+        
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
         playerController = player.GetComponent<PlayerController>();
+    }
+    private void OnEnable()
+    {
+       // EnemyHitBox.onPlayerLose += AttackAnim;
+    }
+    private void OnDisable()
+    {
+       // EnemyHitBox.onPlayerLose -= AttackAnim;
     }
 
 
@@ -48,6 +60,7 @@ public class EnemyBrain : MonoBehaviour
             if (!hasJumped)
             {
                 wasSeen?.Invoke();
+
                 hasJumped = true;
                 SFXPlayer.current.PlaySound(jumpSound);
                 charaterJump.StartJumping();
@@ -71,6 +84,7 @@ public class EnemyBrain : MonoBehaviour
     }
     public void AttackAnim()
     {
+        Debug.Log("Attack!");
         animator.SetTrigger("Attack");
     }
 
