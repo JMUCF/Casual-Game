@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 93ecca873a3eecc418a7f3c030c7bff9
   - enabled: 1
     path: Assets/Scenes/Difficulty.unity
-    guid: 74bb8435d51360e478e1998da6311bf8
+    guid: 64748c62fc54d8c418afe85ada25c362
   - enabled: 1
     path: Assets/Scenes/GenerationTestin.unity
     guid: 43bd7ecd1fa6b644b88b34aa699188a8
