@@ -34,7 +34,7 @@ public class ApplySkin : MonoBehaviour
 
         Debug.Log($"Selected Skin: {selectedSkin.skinName}, ID: {selectedSkin.id}, Unlocked: {selectedSkin.unlocked}");
 
-        Transform ricky1 = player.transform.Find("Ricky 1");
+        Transform ricky1 = player.transform.Find("Ricky/Racoon1");
         if (ricky1 == null)
         {
             Debug.LogWarning("Ricky 1 not found on player.");
