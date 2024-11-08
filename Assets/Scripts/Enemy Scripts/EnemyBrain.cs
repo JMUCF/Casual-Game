@@ -67,6 +67,7 @@ public class EnemyBrain : MonoBehaviour
         {
             animator.SetFloat("Blend", 0);
         }
+        else animator.SetFloat("Blend", 1);
     }
     public void AttackAnim()
     {

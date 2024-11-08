@@ -124,7 +124,9 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 0}
   playerController: {fileID: 0}
-  bushClip: {fileID: 8300000, guid: 96fdcb05173313745945249234526291, type: 3}
+  bush: {fileID: 8300000, guid: 96fdcb05173313745945249234526291, type: 3}
+  trash: {fileID: 8300000, guid: 42ce4bfa4ada51248b3ad2ccf53d2dc7, type: 3}
+  metal: {fileID: 8300000, guid: c275c1a330582e846a18bb12dcc11ff6, type: 3}
 --- !u!114 &1872995262927986715
 MonoBehaviour:
   m_ObjectHideFlags: 0

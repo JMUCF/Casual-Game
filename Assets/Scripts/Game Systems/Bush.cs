@@ -11,7 +11,8 @@ public class Bush : MonoBehaviour
     private GameObject enemyColliderObj;
     public PlayerController playerController;
 
-    public AudioClip bushClip;
+    private AudioClip bushClip;
+    public AudioClip bush, trash, metal;
     // Start is called before the first frame update
 
     void Start()
@@ -20,6 +21,21 @@ public class Bush : MonoBehaviour
         renderer.material.color = Color.green;
         enemy = GameObject.Find("Enemy");
         enemyColliderObj = enemy.transform.GetChild(0).gameObject;
+        switch (SceneChange.propType.ToString())
+        {
+            case "Suburbs":
+                bushClip = bush;
+                break;
+            case "City":
+                bushClip = trash;
+                break;
+            case "Army":
+                bushClip = metal;
+                break;
+            default:
+                bushClip = bush;
+                break;
+        }
     }
 
     
