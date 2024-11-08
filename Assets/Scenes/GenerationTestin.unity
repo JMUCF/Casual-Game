@@ -40036,6 +40036,33 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerTransform: {fileID: 1175528298}
   player: {fileID: 1175528292}
+  sawPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2032293065}
+        m_TargetAssemblyTypeName: FadeInandOut, Assembly-CSharp
+        m_MethodName: FadeStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2032293062}
+        m_TargetAssemblyTypeName: FadeInandOut, Assembly-CSharp
+        m_MethodName: FadeStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canSee: 0
   hasJumped: 0
   charaterJump: {fileID: 1999619263}
@@ -50754,7 +50781,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2032293063}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Contiune
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -73411,7 +73438,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380248067ffaffc44b8800ad2ede4fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLost:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2032293063}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoseState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1068776680}
+        m_TargetAssemblyTypeName: EnemyBrain, Assembly-CSharp
+        m_MethodName: AttackAnim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   looseSound: {fileID: 8300000, guid: 196d50da0f592364d92b54318ac0957b, type: 3}
+  hasFound: 0
 --- !u!65 &1890928022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73431,8 +73486,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.99999976, y: 1.3289993, z: 1}
-  m_Center: {x: 0, y: -0.16449988, z: 0.5}
+  m_Size: {x: 0.99999976, y: 3.7520635, z: 1}
+  m_Center: {x: 0, y: -1.3760341, z: 0.5}
 --- !u!33 &1890928023
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -73460,7 +73515,8 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 2100000, guid: 636ce8703612136419fa0fcae8f004f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

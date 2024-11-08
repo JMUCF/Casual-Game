@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     #region Event Listeners
     private void OnEnable()
     {
-        EnemyHitBox.onPlayerLose += LoseState;
+        //EnemyHitBox.onPlayerLose += LoseState;
 
         PlayerInteract.earlyWin += WinState;
         PlayerInteract.earlyWin += EarnAStar;
@@ -38,15 +38,19 @@ public class GameManager : MonoBehaviour
 
         EnemyBrain.wasSeen += wasSeen;
     }
-
     private void OnDisable()
     {
-        EnemyHitBox.onPlayerLose -= LoseState;
+        //EnemyHitBox.onPlayerLose -= LoseState;
 
         PlayerInteract.earlyWin -= WinState;
+        PlayerInteract.earlyWin -= EarnAStar;
 
         PlayerInteract.lateWin -= WinState;
+
+        EnemyBrain.wasSeen -= wasSeen;
     }
+
+
     #endregion
     #region Save Systems
     public void SavePlayerStats()
@@ -61,7 +65,7 @@ public class GameManager : MonoBehaviour
     #endregion
     private void Start()
     {
-        Enemy.SetActive(true);
+        //Enemy.SetActive(true);
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         LoadPlayerStats();
@@ -87,14 +91,14 @@ public class GameManager : MonoBehaviour
     }
     private void wasSeen()
     {
-        Debug.Log("I WAS SEEN");
         playerSeen = true;
     }
 
 
     public void LoseState()
     {
-        EnemyHitBox.onPlayerLose -= LoseState;
+        Debug.LogError("Player Lost!" + loseScreen);
+        //EnemyHitBox.onPlayerLose -= LoseState;
         loseScreen.SetActive(true);
         LeanTween.moveLocalY(loseScreen, 0, 1);
     }
@@ -110,7 +114,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         MenuSFX.SFXInstance.EnterSound();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2) ;
     }
     public void Contiune()
     {

@@ -14,7 +14,7 @@ public class ApplySkin : MonoBehaviour
 
     public void ApplySkinToPlayer()
     {
-        Debug.Log("Attempting to apply skin to player");
+       // Debug.Log("Attempting to apply skin to player");
         Skin selectedSkin = null;
 
         foreach (Skin skin in save.skins)
@@ -28,23 +28,23 @@ public class ApplySkin : MonoBehaviour
 
         if (selectedSkin == null)
         {
-            Debug.LogWarning("No selected skin found or none is unlocked.");
+           // Debug.LogWarning("No selected skin found or none is unlocked.");
             return;
         }
 
-        Debug.Log($"Selected Skin: {selectedSkin.skinName}, ID: {selectedSkin.id}, Unlocked: {selectedSkin.unlocked}");
+       // Debug.Log($"Selected Skin: {selectedSkin.skinName}, ID: {selectedSkin.id}, Unlocked: {selectedSkin.unlocked}");
 
         Transform ricky1 = player.transform.Find("Ricky/Racoon1");
         if (ricky1 == null)
         {
-            Debug.LogWarning("Ricky 1 not found on player.");
+            //Debug.LogWarning("Ricky 1 not found on player.");
             return;
         }
 
         Renderer renderer = ricky1.GetComponent<Renderer>();
         if (renderer == null)
         {
-            Debug.LogWarning("Renderer not found on Ricky 1.");
+           // Debug.LogWarning("Renderer not found on Ricky 1.");
             return;
         }
 
@@ -56,6 +56,6 @@ public class ApplySkin : MonoBehaviour
 
         renderer.materials = newMaterials;
 
-        Debug.Log("Applied skin: " + selectedSkin.skinName);
+       // Debug.Log("Applied skin: " + selectedSkin.skinName);
     }
 }
