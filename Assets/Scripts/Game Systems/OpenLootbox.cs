@@ -40,6 +40,7 @@ public class OpenLootbox : MonoBehaviour
     private bool CheckPoints()
     {
         PlayerData data = SaveSystem.LoadStats();
+        manager.pointsEarned = data.totalPoints;
         return data.totalPoints >= 3;
     }
 
