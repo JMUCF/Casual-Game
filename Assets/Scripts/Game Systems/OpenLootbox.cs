@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class OpenLootbox : MonoBehaviour
 {
     public jsonSave save;
     public GameManager manager;
     private Animator animator;
+    public TMP_Text unboxText;
 
     private void Awake()
     {
-        // Get the Animator component on the same GameObject
         animator = GetComponent<Animator>();
+        unboxText.gameObject.SetActive(false);
     }
 
     public void OpenLootBox()
@@ -19,14 +21,14 @@ public class OpenLootbox : MonoBehaviour
 
         if (availableSkins.Count > 0 && CheckPoints())
         {
-            // Play the loot box animation once
             animator.SetTrigger("PlayLootBoxAnimation");
 
             manager.pointsEarned -= 3;
             int randomSkinIndex = Random.Range(0, availableSkins.Count);
             Skin unlockedSkin = availableSkins[randomSkinIndex];
             unlockedSkin.unlocked = true;
-            Debug.Log("Unlocked Skin: " + unlockedSkin.skinName);
+            DisplayUnlockedSkin(unlockedSkin.skinName);
+
             manager.SavePlayerStats();
         }
         else
@@ -35,6 +37,18 @@ public class OpenLootbox : MonoBehaviour
         }
 
         save.SaveSkins();
+    }
+
+    private void DisplayUnlockedSkin(string skinName)
+    {
+        unboxText.text = $"Unlocked: {skinName}";
+        unboxText.gameObject.SetActive(true);
+        Invoke(nameof(HideUnboxText), 5f);
+    }
+
+    private void HideUnboxText()
+    {
+        unboxText.gameObject.SetActive(false);
     }
 
     private bool CheckPoints()

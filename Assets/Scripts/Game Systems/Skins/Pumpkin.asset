@@ -15,7 +15,7 @@ MonoBehaviour:
   skinName: Pumpkin
   rarity: 3
   id: 4
-  unlocked: 1
+  unlocked: 0
   materials:
   - {fileID: 2100000, guid: f4eb11f9f3462364695a5336825761ab, type: 2}
   - {fileID: 2100000, guid: f4eb11f9f3462364695a5336825761ab, type: 2}

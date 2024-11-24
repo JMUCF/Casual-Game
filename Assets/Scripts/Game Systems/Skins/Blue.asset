@@ -15,7 +15,7 @@ MonoBehaviour:
   skinName: Blue
   rarity: 0
   id: 1
-  unlocked: 1
+  unlocked: 0
   materials:
   - {fileID: 2926557707537190794, guid: 49a89e3d29a0f814cbe890ae6622d86a, type: 3}
   - {fileID: 2926557707537190794, guid: 49a89e3d29a0f814cbe890ae6622d86a, type: 3}

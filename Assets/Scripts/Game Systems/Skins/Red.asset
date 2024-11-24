@@ -15,7 +15,7 @@ MonoBehaviour:
   skinName: Red
   rarity: 0
   id: 0
-  unlocked: 1
+  unlocked: 0
   materials:
   - {fileID: 2100000, guid: d881c2e6e6a79be4d82b8525515982c5, type: 2}
   - {fileID: 2100000, guid: d881c2e6e6a79be4d82b8525515982c5, type: 2}
